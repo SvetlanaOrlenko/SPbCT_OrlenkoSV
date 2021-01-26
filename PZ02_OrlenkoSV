@@ -1,0 +1,59 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        char symb1=1067;
+        char symb2 ='Ы';
+
+        System.out.println("symb1 contains "+ symb1);
+        System.out.println("symb2 contains "+ symb2);
+    }
+}
+
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        char ch = 'J';
+        int intCh = (int) ch;
+
+        System.out.println("J corresponds with " + intCh);
+    }
+    }
+    
+    
+    package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        String s1 = "I have ";
+        String s2 = " apples ";
+        int num = 3;
+        String s = s1 + num + s2;
+
+        System.out.println(s);
+
+    }
+    }
+    
+    
+    package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        byte x=5;
+        byte y1=x++;     // на момент начала исполнения x равен 5
+        byte y2=x--;      // на момент начала исполнения x равен 6
+        byte y3=++x;    // на момент начала исполнения x равен 5
+        byte y4=--x;      // на момент начала исполнения x равен 6
+        System.out.println(y1);
+        System.out.println(y2);
+        System.out.println(y3);
+        System.out.println(y4);
+    }
+}
