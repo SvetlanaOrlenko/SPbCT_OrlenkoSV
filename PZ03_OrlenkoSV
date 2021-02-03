@@ -1,0 +1,129 @@
+Задание 1:
+package com.metanit;
+
+import java.util.Scanner;
+
+public class pz03_1 {
+    public static void main(String[] args) {
+        System.out.println("Введите число:");
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        if (num < 100){
+            System.out.println("less");
+        } else {
+            System.out.println("not less");
+        }
+    }
+}
+Задание 2:
+package com.metanit;
+
+import java.util.Scanner;
+
+public class pz03_2 {
+    public static void main(String[] args) {
+         System.out.println("Введите оценку:");
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        switch (num) {
+            case 2 -> System.out.println("Неудовлетворительно");
+            case 3 -> System.out.println("Удовлетворительно");
+            case 4 -> System.out.println("Хорошо");
+            case 5 -> System.out.println("Отлично");
+            default -> System.out.println("Ошибка... Диапазон чисел от 2 до 5...");
+        }
+    }
+}
+Задание 3:
+package com.metanit;
+
+import java.util.Scanner;
+
+public class pz03_3 {
+public static void main(String[] args) {
+        System.out.println("Введите название дня недели");
+        Scanner scanner = new Scanner(System.in);
+        String string = scanner.nextLine();
+        switch (string){
+            case "Понедельник" -> System.out.println("1");
+            case "Вторник" -> System.out.println("2");
+            case "Среда" -> System.out.println("3");
+            case "Четверг" -> System.out.println("4");
+            case "Пятница" -> System.out.println("5");
+            case "Суббота" -> System.out.println("6");
+            case "Воскресенье" -> System.out.println("0");
+            default -> System.out.println("Ошибка ввода...");
+        }
+    }
+}
+Задание 4:
+package com.metanit;
+
+import java.util.Scanner;
+
+public class pz03_4 {
+public static void main(String[] args) {
+System.out.println("Введите оценку по 100-бальной шкале");
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        if (num >= 91 && num <=100){
+            System.out.println("A");
+        } else if(num >= 81 && num <=90) {
+            System.out.println("B");
+        } else if (num >= 71 && num <= 80){
+            System.out.println("C");
+        } else  if (num >= 61 && num <= 70){
+            System.out.println("D");
+        } else if (num >= 51 && num <= 60){
+            System.out.println("E");
+        } else if (num >=0 && num <= 50){
+            System.out.println("F");
+        } else {
+            System.out.println("Error");
+        }
+    }
+}
+Задание 5, Вариант 11
+1:
+package com.metanit;
+
+import java.util.Scanner;
+import static java.lang.Math.*;
+public class pz03_5_1_11 {
+    public static void main(String[] args) {
+    System.out.println("Введите X" + "\n");
+        Scanner scanner = new Scanner(System.in);
+        double x = scanner.nextDouble();
+        double a = 3.9;
+        double b = 4.8;
+        if(x > 4){
+            System.out.println(sqrt(a + abs(sin(x))));
+        } else if (x < 4) {
+            System.out.println(tan(b * x));
+        } else {
+            System.out.println("error");
+        }
+    }
+}
+2:
+package com.metanit;
+
+import java.util.Scanner;
+import static java.lang.Math.*;
+public class pz03_5_1_11 {
+    public static void main(String[] args) {
+    System.out.println("Введите X" + "\n");
+        Scanner scanner = new Scanner(System.in);
+        double x = scanner.nextDouble();
+        double a = 1.7;
+        if (x <= -1){
+            System.out.println(pow(x,2) - a*x);
+        } else if (x > 4){
+            System.out.println(1/(pow(x,2)+2));
+        } else if( x > -1 &&  x <= 4){
+            System.out.println(cbrt(pow(x+1,2)));
+        } else {
+            System.out.println("error");
+        }
+    }
+}
