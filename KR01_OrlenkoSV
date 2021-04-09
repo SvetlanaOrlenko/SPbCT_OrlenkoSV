@@ -116,7 +116,23 @@ public class Main {
     }
 }
 43.	Найдите n-ое число Фибоначчи.
+package com.company;
+import java.util.Scanner;
+public class Main {
 
+    public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            int n = scanner.nextInt();
+            long a = 0;
+            long b = 1;
+            for (int i = 2; i <= n; ++i) {
+                long next = a + b;
+                a = b;
+                b = next;
+            }
+            System.out.println(b);
+    }
+}
    5. Работа с символами
 3. Вывести квадрат 7 на 7 из случайных букв.
 package com.company;
