@@ -1,0 +1,191 @@
+    1. Работа с консолью
+2.	Вывести на экран текущее название дня недели, название месяца и свое имя. Каждое слово должно быть в отдельной строке.
+package com.company;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Date nwday = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("E yyyy.MM.dd 'и время' hh:mm:ss a zzz");
+        System.out.println(nwday);
+
+        Person bob = new Person();
+        bob.displayInfo();
+    }
+}
+class Person{
+
+    String name;
+    Person()
+    {
+        name = "Svetlana";
+    }
+
+    void displayInfo(){
+        System.out.printf( name);
+}
+}
+4.	Вывести на экран букву "W" из символов "*" (звездочка).
+package com.company;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("*     *      *");
+        System.out.println(" *   * *    * ");
+        System.out.println("  * *   * *  ");
+        System.out.println("   *     *   ");
+    }
+}
+    2. Простейшая арифметика
+12. Пользователь вводит количество недель, месяцев, лет и получает количество дней за это время. Считать, что в месяце 30 дней.
+package com.company;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите количество недель: ");
+        int w = in.nextInt();
+        System.out.print("Введите количество месяцев: ");
+        int m = in.nextInt();
+        System.out.print("Введите количество лет: ");
+        int y = in.nextInt();
+        int numb = w*7 + m*30 + y*12*30;
+        System.out.println("Количество дней: " + numb);
+    }
+}
+18.	Дан прямоугольник размером 647 x 170. Сколько квадратов со стороной 30 можно вырезать из него?
+package com.company;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] rectangle = new int[]{647, 170};
+        int square = 30;
+        int squaresCount = (rectangle[0] / square) * (rectangle[1] / square);
+        System.out.println("Количество квадратов: " + squaresCount);
+    }
+}  
+    3. Условный оператор и арифметика
+1.	Дано число. Если оно больше 3, то увеличить число на 10, иначе уменьшить на 10.
+package com.company;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner console = new Scanner(System.in);
+        System.out.print("Введите число");
+        int a = console.nextInt();
+        if(a > 3)
+            a += 10;
+        else
+            a -= 10;
+        System.out.println("Итоговое число: " + a);
+    }
+}
+12. Пользователь вводит три числа. Если все числа больше 10 и первые два числа делятся на 3, то вывести yes, иначе no.
+
+    4. Циклы и арифметика
+12.	Найти сумму  1+4+7+11+...+112.
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int sum = 0;
+
+        for (int i = 0; i <= 112; i++) {
+            if ((Integer.toBinaryString(i).chars().filter(c -> c == '1').count() % 2 != 0) &&
+                    isEvenZeros(Integer.toBinaryString(i))) {
+                System.out.print(i + ", ");
+                sum += i;
+            }
+        }
+        System.out.println("\nСумма: " + sum);
+    }
+
+    private static boolean isEvenZeros(String s) {
+        int count = 0;
+        int index = s.length() - 1;
+
+        while (s.charAt(index--) == '0') {
+            count++;
+        }
+
+        return count % 2 == 0;
+    }
+}
+43.	Найдите n-ое число Фибоначчи.
+
+   5. Работа с символами
+3. Вывести квадрат 7 на 7 из случайных букв.
+package com.company;
+public class Main {
+    public static char getRndCharUpperCase() {
+        char tmpChar = (char)(Math.random()*100);
+        while (!Character.isUpperCase(tmpChar))
+            tmpChar = (char)(Math.random()*100);
+        return tmpChar;
+    }
+    public static void main(String[] args) {
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                System.out.printf("%3c,", getRndCharUpperCase());
+            }
+            System.out.println();
+        }
+        }
+    }
+6.	Сгенерировать пароль для пользователя. Требования: длина от 6 до 20 символов, должен быть ровно один символ подчеркивания, хотя бы две заглавных буквы, не более 5 цифр, любые две цифры подряд недопустимы.
+package com.company;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        ByteArrayOutputStream password = getPassword();
+        System.out.println(password.toString());
+    }
+    public static ByteArrayOutputStream getPassword() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        StringBuilder sb = new StringBuilder();
+        List<String> arrayList = new ArrayList<>();
+        arrayList.add(getRandomLetter(true, false, false));
+        arrayList.add(getRandomLetter(false, true, false));
+        arrayList.add(getRandomLetter(false, false, true));
+        for (int i = 6; i < 20; i++) {
+            arrayList.add(getRandomLetter(false, false, false));
+        }
+        Collections.shuffle(arrayList);
+        for (String letter : arrayList) {
+            sb.append(letter);
+        }
+        try {
+            outputStream.write(sb.toString().getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return outputStream;
+    }
+    public static String getRandomLetter(boolean isLowerCase, boolean isCapital, boolean isNumber) {
+        if (isNumber) {
+            return String.valueOf((int) (Math.random() * 10));
+        }
+        char[] letterArray = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '_'};
+        int charNumber = (int) (Math.random() * letterArray.length);
+        if (isCapital) {
+            return String.valueOf(letterArray[charNumber]).toUpperCase();
+        }
+        if (isLowerCase) {
+            return String.valueOf(letterArray[charNumber]);
+        }
+        double random = Math.random();
+        if (random > 0.7) {
+            return String.valueOf(letterArray[charNumber]).toUpperCase();
+        }
+        if (Math.random() > 0.5) {
+            return String.valueOf((int) (Math.random() * 10));
+        }
+        return String.valueOf(letterArray[charNumber]);
+    }
+}
